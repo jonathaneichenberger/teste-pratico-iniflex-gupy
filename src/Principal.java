@@ -56,8 +56,7 @@ public class Principal {
         funcionarios.totalSalariosDosFuncionarios();
 
         //3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00.
-        //funcionarios.imprimirQuantidadeSalariosMinimosFuncionario();
-        //funcionarios.imprimirFuncionarios();
+        funcionarios.imprimirQuantidadeSalariosMinimosFuncionario();
     }
 
 }

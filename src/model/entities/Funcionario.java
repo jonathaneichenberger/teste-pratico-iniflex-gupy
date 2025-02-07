@@ -139,7 +139,15 @@ public class Funcionario extends Pessoa{
         System.out.printf("\nTotal dos salários: R$ %,.2f\n", totalSalarios);
     }
 
-    
+    public void imprimirQuantidadeSalariosMinimosFuncionario() {
+        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+        System.out.println("\nQuantidade de salários mínimos por funcionário:");
 
+        for(Funcionario funcionario : funcionarios) {
+            BigDecimal qtdSalariosMinimos = funcionario.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_UP);
+            System.out.printf("%s: %.2f salários mínimos\n", funcionario.getNome(), qtdSalariosMinimos);
+        }
+
+    }
 
 }
