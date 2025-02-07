@@ -53,7 +53,7 @@ public class Principal {
         funcionarios.imprimirFuncionariosPorOrdemAlfabetica();
 
         // 3.11 – Imprimir o total dos salários dos funcionários.
-        //funcionarios.totalSalariosDosFuncionarios();
+        funcionarios.totalSalariosDosFuncionarios();
 
         //3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00.
         //funcionarios.imprimirQuantidadeSalariosMinimosFuncionario();

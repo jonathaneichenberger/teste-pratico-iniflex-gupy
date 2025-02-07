@@ -131,5 +131,15 @@ public class Funcionario extends Pessoa{
                 .forEach(System.out::println);
     }
 
+    public void totalSalariosDosFuncionarios() {
+        BigDecimal totalSalarios = BigDecimal.ZERO;
+        for(Funcionario funcionario : funcionarios) {
+            totalSalarios = totalSalarios.add(funcionario.getSalario());
+        }
+        System.out.printf("\nTotal dos salários: R$ %,.2f\n", totalSalarios);
+    }
+
+    
+
 
 }
