@@ -1,11 +1,12 @@
 package model;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Funcionario extends Pessoa{
     private BigDecimal salario;
@@ -79,5 +80,30 @@ public class Funcionario extends Pessoa{
             BigDecimal aumento = funcionario.getSalario().multiply(BigDecimal.valueOf(porcentagemAumento / 100));
             funcionario.setSalario(funcionario.getSalario().add(aumento));
         }
+    }
+
+    public Map<String, List<Funcionario>> agruparFuncionariosPorFuncao(Map<String, List<Funcionario>> funcionariosPorFuncao) {
+        funcionariosPorFuncao = funcionarios.stream()
+                .collect(Collectors.groupingBy(Funcionario::getFuncao));
+        return funcionariosPorFuncao;
+
+    }
+
+    public void imprimirFuncionariosAgrupadosPorFuncao(Map<String, List<Funcionario>> funcionariosPorFuncao) {
+        funcionariosPorFuncao.forEach((funcao, lista) -> {
+            System.out.println("\nFunção: " + funcao);
+            lista.forEach(System.out::println);
+        });
+    }
+
+    public void funcionariosComAniversarioOutubroDezembro() {
+        List<Funcionario> aniversariantesOutubroDezembro = new ArrayList<>();
+        System.out.println("\nFuncionários que fazem aniversário em outubro e dezembro:");
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getDataNascimento().getMonthValue() == 10 || funcionario.getDataNascimento().getMonthValue() == 12){
+                aniversariantesOutubroDezembro.add(funcionario);
+            }
+        }
+        aniversariantesOutubroDezembro.forEach(System.out::println);
     }
 }

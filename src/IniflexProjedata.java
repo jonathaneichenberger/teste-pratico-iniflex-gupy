@@ -1,6 +1,9 @@
 import model.Funcionario;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class IniflexProjedata {
@@ -32,7 +35,18 @@ public class IniflexProjedata {
         // 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor.
         funcionarios.atualizarSalarioComAumento(10.0);
 
+        // 3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”.
+        Map<String, List<Funcionario>> funcionariosPorFuncao = new HashMap<>();
+        funcionariosPorFuncao = funcionarios.agruparFuncionariosPorFuncao(funcionariosPorFuncao);
+
+
+        // 3.6 – Imprimir os funcionários, agrupados por função.
+        funcionarios.imprimirFuncionariosAgrupadosPorFuncao(funcionariosPorFuncao);
+
+        // 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
+        funcionarios.funcionariosComAniversarioOutubroDezembro();
+
         
-        funcionarios.imprimirFuncionarios();
+        //funcionarios.imprimirFuncionarios();
     }
 }
