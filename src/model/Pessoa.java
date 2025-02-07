@@ -1,19 +1,23 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Pessoa {
     private String nome;
     private LocalDate dataNascimento;
 
+    // Método estático para receber no construtor os parametros da Data de nascimento no formato dd/mm/aaaa.
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public Pessoa (){
 
     }
 
-    public Pessoa(String nome, LocalDate dataNascimento) {
+    public Pessoa(String nome, String dataNascimento) {
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
+        this.dataNascimento = LocalDate.parse(dataNascimento, FORMATTER);
     }
 
     public String getNome() {

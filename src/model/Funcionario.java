@@ -1,7 +1,6 @@
 package model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Funcionario extends Pessoa{
@@ -12,7 +11,7 @@ public class Funcionario extends Pessoa{
 
     }
 
-    public Funcionario(String nome, LocalDate dataNascimento, BigDecimal salario, String funcao) {
+    public Funcionario(String nome, String dataNascimento, BigDecimal salario, String funcao) {
         super(nome, dataNascimento);
         this.salario = salario;
         this.funcao = funcao;
@@ -47,5 +46,5 @@ public class Funcionario extends Pessoa{
         return Objects.hash(super.hashCode(), salario, funcao);
     }
 
-    
+
 }
