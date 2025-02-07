@@ -8,7 +8,7 @@ public class Pessoa {
     private LocalDate dataNascimento;
 
     public Pessoa (){
-        
+
     }
 
     public Pessoa(String nome, LocalDate dataNascimento) {
