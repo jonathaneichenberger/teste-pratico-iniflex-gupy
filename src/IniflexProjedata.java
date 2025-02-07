@@ -29,5 +29,10 @@ public class IniflexProjedata {
          */
         funcionarios.imprimirFuncionarios();
 
+        // 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor.
+        funcionarios.atualizarSalarioComAumento(10.0);
+
+        
+        funcionarios.imprimirFuncionarios();
     }
 }

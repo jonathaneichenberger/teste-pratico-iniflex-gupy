@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,4 +73,11 @@ public class Funcionario extends Pessoa{
         funcionarios.forEach(System.out::println);
     }
 
+    // Método para Atualizar o salário dos funcionários com o aumento dado.
+    public void atualizarSalarioComAumento (Double porcentagemAumento) {
+        for (Funcionario funcionario : funcionarios) {
+            BigDecimal aumento = funcionario.getSalario().multiply(BigDecimal.valueOf(porcentagemAumento / 100));
+            funcionario.setSalario(funcionario.getSalario().add(aumento));
+        }
+    }
 }
