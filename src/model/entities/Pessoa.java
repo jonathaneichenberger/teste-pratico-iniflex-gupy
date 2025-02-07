@@ -48,9 +48,4 @@ public class Pessoa {
         return Objects.hash(nome, dataNascimento);
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + nome +
-                "\t | Data de Nascimento: " + dataNascimento.format(FORMATTER);
-    }
 }

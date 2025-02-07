@@ -1,13 +1,10 @@
 package model.entities;
 
 import java.math.BigDecimal;
-
-
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -65,11 +62,12 @@ public class Funcionario extends Pessoa{
 
     public void adicionarFuncionario (String nome, String dataNascimento, BigDecimal salario, String funcao){
         funcionarios.add(new Funcionario(nome, dataNascimento, salario, funcao));
+        System.out.printf("• Funcionário %s adicionado com Sucesso!\n", funcionarios.getLast().getNome());
     }
 
     public void removerFuncionarioPeloNome(String nome){
         funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase(nome.toLowerCase()));
-
+        System.out.printf("• Funcionário %s Removido com Sucesso", nome);
     }
 
     // Método para Imprimir todos os Funcionários através do toString().
@@ -77,7 +75,7 @@ public class Funcionario extends Pessoa{
         funcionarios.forEach(System.out::println);
     }
 
-    // Método para Atualizar o salário dos funcionários com o aumento dado.
+    // Método para Atualizar o salário dos funcionários com o aumento passado pelo parametro.
     public void atualizarSalarioComAumento (Double porcentagemAumento) {
         for (Funcionario funcionario : funcionarios) {
             BigDecimal aumento = funcionario.getSalario().multiply(BigDecimal.valueOf(porcentagemAumento / 100));
@@ -88,6 +86,7 @@ public class Funcionario extends Pessoa{
     public Map<String, List<Funcionario>> agruparFuncionariosPorFuncao(Map<String, List<Funcionario>> funcionariosPorFuncao) {
         funcionariosPorFuncao = funcionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
+        System.out.println("Funcionários foram agrupados por Função exercida.");
         return funcionariosPorFuncao;
 
     }
