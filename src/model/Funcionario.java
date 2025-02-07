@@ -1,9 +1,9 @@
 package model;
 
 import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class Funcionario extends Pessoa{
@@ -52,12 +52,10 @@ public class Funcionario extends Pessoa{
 
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        return "Funcionario:\n " +
-                "Nome: " + this.getNome() +
-                " | Data de Nascimento: " + this.getDataNascimento() +
-                " | Salário: " + salario +
-                " | Funcao: " + funcao;
+        return String.format("Nome: %s, Data Nascimento: %s, Salário: %,.2f, Função: %s",
+                this.getNome(), this.getDataNascimento().format(formatter), salario, funcao);
     }
 
     public void adicionarFuncionario (String nome, String dataNascimento, BigDecimal salario, String funcao){
@@ -69,6 +67,7 @@ public class Funcionario extends Pessoa{
 
     }
 
+    // Método para Imprimir todos os Funcionários através do toString().
     public void imprimirFuncionarios () {
         funcionarios.forEach(System.out::println);
     }

@@ -47,4 +47,10 @@ public class Pessoa {
     public int hashCode() {
         return Objects.hash(nome, dataNascimento);
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome +
+                "\t | Data de Nascimento: " + dataNascimento.format(FORMATTER);
+    }
 }
