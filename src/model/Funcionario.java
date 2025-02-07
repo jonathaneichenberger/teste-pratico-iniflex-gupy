@@ -124,4 +124,11 @@ public class Funcionario extends Pessoa{
         }
         System.out.println("O funcionário mais velho da empresa é o(a) " + funcionarioMaisVelho.getNome() + " com " + idade + " anos de idade!");
     }
+
+    public void imprimirFuncionariosPorOrdemAlfabetica() {
+        System.out.println("\nLista de Funcionários por Ordem Alfabética:\n");
+        funcionarios.stream()
+                .sorted(Comparator.comparing(Funcionario::getNome))
+                .forEach(System.out::println);
+    }
 }
