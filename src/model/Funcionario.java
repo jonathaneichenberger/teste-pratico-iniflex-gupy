@@ -1,11 +1,15 @@
 package model;
 
+import com.sun.jdi.IntegerValue;
+
 import java.math.BigDecimal;
+
+
+import java.time.LocalDate;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Funcionario extends Pessoa{
@@ -105,5 +109,19 @@ public class Funcionario extends Pessoa{
             }
         }
         aniversariantesOutubroDezembro.forEach(System.out::println);
+    }
+
+    public void funcionarioMaisVelho() {
+        LocalDate anoAtual = LocalDate.now();
+        int idade = 0;
+        Funcionario funcionarioMaisVelho = new Funcionario();
+        funcionarioMaisVelho.setDataNascimento(LocalDate.now());
+        for (Funcionario funcionario : funcionarios) {
+            if(Year.of(funcionario.getDataNascimento().getYear()).getValue() < Year.of(funcionarioMaisVelho.getDataNascimento().getYear()).getValue()) {
+                funcionarioMaisVelho = funcionario;
+                idade = Year.of(anoAtual.getYear()).getValue() - Year.of(funcionario.getDataNascimento().getYear()).getValue();
+            }
+        }
+        System.out.println("O funcionário mais velho da empresa é o(a) " + funcionarioMaisVelho.getNome() + " com " + idade + " anos de idade!");
     }
 }

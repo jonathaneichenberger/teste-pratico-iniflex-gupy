@@ -46,7 +46,9 @@ public class IniflexProjedata {
         // 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
         funcionarios.funcionariosComAniversarioOutubroDezembro();
 
-        
+        //3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade.
+        funcionarios.funcionarioMaisVelho();
+
         //funcionarios.imprimirFuncionarios();
     }
 }
