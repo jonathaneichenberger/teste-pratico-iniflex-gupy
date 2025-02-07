@@ -1,10 +1,9 @@
-package model;
-
-import com.sun.jdi.IntegerValue;
+package model.entities;
 
 import java.math.BigDecimal;
 
 
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -126,9 +125,11 @@ public class Funcionario extends Pessoa{
     }
 
     public void imprimirFuncionariosPorOrdemAlfabetica() {
-        System.out.println("\nLista de Funcionários por Ordem Alfabética:\n");
+        System.out.println("\nLista de Funcionários por Ordem Alfabética:");
         funcionarios.stream()
                 .sorted(Comparator.comparing(Funcionario::getNome))
                 .forEach(System.out::println);
     }
+
+
 }
